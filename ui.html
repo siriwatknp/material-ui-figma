@@ -1,0 +1,24 @@
+<button id="export-button">export</button>
+
+<script>
+  document.getElementById("export-button").onclick = () => {
+    // linkElement.click();
+
+    parent.postMessage({ pluginMessage: { type: "export" } }, "*");
+  };
+
+  window.addEventListener("message", (event) => {
+    const { value } = event.data.pluginMessage;
+
+    const dataStr = JSON.stringify(value, null, 2);
+    const dataUri =
+      "data:application/json;charset=utf-8," + encodeURIComponent(dataStr);
+
+    const exportFileDefaultName = "palette.json";
+
+    const linkElement = document.createElement("a");
+    linkElement.setAttribute("href", dataUri);
+    linkElement.setAttribute("download", exportFileDefaultName);
+    linkElement.click();
+  });
+</script>

@@ -1,21 +1,11 @@
-// This plugin creates 5 rectangles on the screen.
-const numberOfRectangles = 5;
+figma.showUI(__html__);
 
-// This file holds the main code for the plugins. It has access to the *document*.
-// You can access browser APIs such as the network by creating a UI which contains
-// a full browser environment (see documentation).
+figma.ui.onmessage = (msg) => {
+  if (msg.type === "export") {
+    console.log(msg);
+    const paints = figma.getLocalPaintStyles();
+    console.log(paints[0]);
 
-const nodes: SceneNode[] = [];
-for (let i = 0; i < numberOfRectangles; i++) {
-  const rect = figma.createRectangle();
-  rect.x = i * 150;
-  rect.fills = [{ type: "SOLID", color: { r: 1, g: 0.5, b: 0 } }];
-  figma.currentPage.appendChild(rect);
-  nodes.push(rect);
-}
-figma.currentPage.selection = nodes;
-figma.viewport.scrollAndZoomIntoView(nodes);
-
-// Make sure to close the plugin when you're done. Otherwise the plugin will
-// keep running, which shows the cancel button at the bottom of the screen.
-figma.closePlugin();
+    figma.ui.postMessage({ value: { palette: { name: paints[0].name } } });
+  }
+};
