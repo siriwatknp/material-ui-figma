@@ -2,7 +2,7 @@
   "name": "material-ui-figma",
   "version": "0.1.0",
   "description": "Your Figma Plugin",
-  "main": "code.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "watch": "npm run build -- --watch"
