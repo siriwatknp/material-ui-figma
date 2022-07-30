@@ -2,8 +2,6 @@
   "name": "Material UI theme exporter",
   "id": "1135142798929431050",
   "api": "1.0.0",
-  "main": "code.js",
-  "editorType": [
-    "figma"
-  ]
+  "main": "dist/main.js",
+  "editorType": ["figma"]
 }
