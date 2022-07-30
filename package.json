@@ -1,0 +1,17 @@
+{
+  "name": "material-ui-figma",
+  "version": "0.1.0",
+  "description": "Your Figma Plugin",
+  "main": "code.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "npm run build -- --watch"
+  },
+  "repository": "https://github.com/siriwatknp/material-ui-figma.git",
+  "author": "siriwatknp <siriwatkunaporn@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@figma/plugin-typings": "*",
+    "typescript": "*"
+  }
+}
